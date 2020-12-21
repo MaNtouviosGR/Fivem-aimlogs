@@ -14,7 +14,6 @@
 
 Feel free to ask for support! :laughing:
 
-
-![image|236x127](upload://sMS5o2HHqWhvPzxfyokHAEwE9dC.png) 
+https://cdn.discordapp.com/attachments/790485831772012554/790545866909155368/unknown.png
 
 Have fun loging your aim!! :upside_down_face:
