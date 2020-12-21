@@ -1,27 +1,29 @@
-local used = false
-
-Citizen.CreateThread(function() --Creates thread
+Citizen.CreateThread(function()
+    --Creates thread
+    --[[ START LAZYLOADING ]]
+    local lastPedAimed
+    local PlayerId = PlayerId
+    local IsPedArmed = IsPedArmed
+    local PlayerPedId = PlayerPedId
+    local IsEntityAPed = IsEntityAPed
+    local DoesEntityExist = DoesEntityExist
+    local GetPlayerServerId = GetPlayerServerId
+    local TriggerServerEvent = TriggerServerEvent
+    local GetEntityPlayerIsFreeAimingAt = GetEntityPlayerIsFreeAimingAt
+    --[[ END LAZYLOADING ]]
     while true do
-        Citizen.Wait(100)
-        local aiming, targetPed = GetEntityPlayerIsFreeAimingAt(PlayerId(-1))
-        local id = GetPlayerName(PlayerId())
-        if aiming then
-
-            Citizen.SetTimeout(5000, function()
-                used = false
-            end)
-            
-            if DoesEntityExist(targetPed) and IsEntityAPed(targetPed) then
-                local pedId = GetPlayerServerId(aiming)
-                if used == false then
-                    TriggerServerEvent('aimlogs:log', pedId )
-                    used = true
+        local msec = 1000
+        if IsPedArmed(PlayerPedId(), 6) then
+            msec = 250
+            local aiming, targetPed = GetEntityPlayerIsFreeAimingAt(PlayerId(-1))
+            if aiming and targetPed ~= LastPedAimed then
+                lastPedAimed = targetPed
+                if DoesEntityExist(targetPed) and IsEntityAPed(targetPed) then
+                    local pedId = GetPlayerServerId(aiming)
+                    TriggerServerEvent('aimlogs:log', pedId)
                 end
-            end 
-        end 
-
-        if not aiming then
-            used = false
+            end
         end
-    end 
+        Wait(msec)
+    end
 end)
