@@ -12,8 +12,7 @@
 * Add ensure aimlogs in your server.cfg
 * You are ready to go!
 
+***FiveM Forums Post:https://forum.cfx.re/t/standalone-aim-log-system/1918001***
+
 Feel free to ask for support! :laughing:
-
-https://cdn.discordapp.com/attachments/790485831772012554/790545866909155368/unknown.png
-
 Have fun loging your aim!! :upside_down_face:
