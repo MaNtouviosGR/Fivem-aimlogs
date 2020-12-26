@@ -33,5 +33,7 @@ Citizen.CreateThread(function()
         if letSleep then
             Wait(1000)
         end
-    end 
+
+        Wait(250)
+    end
 end)
